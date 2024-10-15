@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Bot Setup Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        .sidebar {
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            background-color: #f8f9fa;
+            padding-top: 20px;
+        }
+        .nav-link {
+            color: #495057;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #007bff;
+            background-color: #e9ecef;
+        }
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#setup">
+                                <i class="fas fa-cog fa-fw me-2"></i>Setup
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#installation">
+                                <i class="fas fa-download fa-fw me-2"></i>Installation
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#configuration">
+                                <i class="fas fa-wrench fa-fw me-2"></i>Configuration
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#usage">
+                                <i class="fas fa-play fa-fw me-2"></i>Usage
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">OAuth Bot Setup Guide</h1>
+                </div>
+
+                <section id="setup">
+                    <h2>Setup</h2>
+                    <p>Welcome to the OAuth Bot setup guide. This guide will walk you through the process of setting up your Discord OAuth bot.</p>
+                    <p>Before you begin, make sure you have the following prerequisites:</p>
+                    <ul>
+                        <li>Node.js (version 14 or higher)</li>
+                        <li>npm (usually comes with Node.js)</li>
+                        <li>A Discord account and access to the Discord Developer Portal</li>
+                    </ul>
+                </section>
+
+                <section id="installation">
+                    <h2>Installation</h2>
+                    <p>To install the necessary dependencies for your OAuth bot, follow these steps:</p>
+                    <ol>
+                        <li>Open your terminal or command prompt</li>
+                        <li>Create a new directory for your bot and navigate to it:</li>
+                        <pre><code>mkdir oauth-bot
+cd oauth-bot</code></pre>
+                        <li>Initialize a new Node.js project:</li>
+                        <pre><code>npm init -y</code></pre>
+                        <li>Install the required packages:</li>
+                        <pre><code>npm install discord.js dotenv express node-fetch@2</code></pre>
+                    </ol>
+                </section>
+
+                <section id="configuration">
+                    <h2>Configuration</h2>
+                    <p>After installation, you need to configure your OAuth bot:</p>
+                    <ol>
+                        <li>Create a new application in the <a href="https://discord.com/developers/applications" target="_blank">Discord Developer Portal</a></li>
+                        <li>In the "Bot" section, create a new bot for your application</li>
+                        <li>In the "OAuth2" section, add a redirect URL (e.g., <code>http://localhost:3000/oauth/callback</code>)</li>
+                        <li>Create a <code>.env</code> file in your project root with the following content:</li>
+                        <pre><code>BOT_TOKEN=your_bot_token_here
+CLIENT_ID=your_client_id_here
+CLIENT_SECRET=your_client_secret_here
+REDIRECT_URI=http://localhost:3000/oauth/callback</code></pre>
+                        <li>Replace the placeholder values with your actual bot token, client ID, and client secret from the Discord Developer Portal</li>
+                    </ol>
+                </section>
+
+                <section id="usage">
+                    <h2>Usage</h2>
+                    <p>To start using your OAuth bot, follow these steps:</p>
+                    <ol>
+                        <li>Create the main bot file <code>index.js</code> with the provided code</li>
+                        <li>Create the OAuth utility file <code>utils/oauth.js</code> with the provided code</li>
+                        <li>Create the command file <code>commands/oauth2.js</code> with the provided code</li>
+                        <li>Run the following command to start your bot:</li>
+                        <pre><code>node index.js</code></pre>
+                        <li>Use the <code>/oauth2</code> command in Discord to generate an invite link and authorize users</li>
+                    </ol>
+                    <p>Remember to keep your bot token and client secret secure and never share them publicly.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Made with <i class="fas fa-heart text-danger"></i> by spacevin</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).scrollIntoView({behavior: 'smooth'});
+                });
+            });
+        });
+    </script>
+</body>
+</html>
