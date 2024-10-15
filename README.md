@@ -16,7 +16,7 @@ Welcome to the Discord OAuth2 Bot! 🎉 This powerful bot simplifies the process
 
 ## Getting Started 🚀
 
-To get started with the Discord OAuth2 Bot, check out our [setup guide](link-to-your-setup-guide). It's designed to get you up and running in no time!
+To get started with the Discord OAuth2 Bot, check out our setup-guide. It's designed to get you up and running in no time!
 
 ## Usage 💻
 
